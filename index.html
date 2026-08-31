@@ -134,18 +134,18 @@ hr.divider{border:none;border-top:1px solid var(--border);margin:0}
 .add-card-desc{font-size:.78rem;color:var(--text3)}
 /* WORKFLOW */
 #page-setup,#page-process,#page-dashboard{background:var(--bg2)}
-.workflow-bar{position:sticky;top:58px;z-index:200;background:rgba(17,22,32,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 24px}
+.workflow-bar{position:sticky;top:58px;z-index:200;background:rgba(180, 198, 186, 0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08);padding:0 24px}
 .workflow-bar-inner{max-width:1240px;margin:0 auto;display:flex;align-items:center;gap:0;height:48px}
-.wf-back{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text3);cursor:pointer;padding:4px 10px 4px 0;border-right:1px solid var(--border);margin-right:20px;transition:color var(--tr);text-decoration:none}
-.wf-back:hover{color:var(--text)}
+.wf-back{display:flex;align-items:center;gap:6px;font-size:.78rem;color:#1B2130;cursor:pointer;padding:4px 10px 4px 0;border-right:1px solid rgba(0,0,0,.18);margin-right:20px;transition:color var(--tr);text-decoration:none;font-weight:600}
+.wf-back:hover{color:#000}
 .wf-steps{display:flex;align-items:center;gap:0;flex:1}
 .wf-step{display:flex;align-items:center;gap:8px;padding:4px 16px 4px 0;cursor:pointer}
-.wf-step-num{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:.68rem;font-weight:700;flex-shrink:0;border:1.5px solid var(--border);color:var(--text3);transition:all .2s}
+.wf-step-num{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:.68rem;font-weight:700;flex-shrink:0;border:1.5px solid rgba(0,0,0,.28);color:#1B2130;transition:all .2s}
 .wf-step.active .wf-step-num{background:var(--accent);border-color:var(--accent);color:#fff}
 .wf-step.done .wf-step-num{background:var(--green);border-color:var(--green);color:#fff}
-.wf-step-label{font-size:.78rem;font-weight:500;color:var(--text3);white-space:nowrap}
-.wf-step.active .wf-step-label,.wf-step.done .wf-step-label{color:var(--text)}
-.wf-sep{width:28px;height:1px;background:var(--border);margin:0 4px;flex-shrink:0}
+.wf-step-label{font-size:.78rem;font-weight:600;color:#232B3D;white-space:nowrap}
+.wf-step.active .wf-step-label,.wf-step.done .wf-step-label{color:#0A0D14}
+.wf-sep{width:28px;height:1px;background:rgba(0,0,0,.22);margin:0 4px;flex-shrink:0}
 .workflow-content{max-width:1240px;margin:0 auto;padding:32px 24px 72px}
 .wf-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--r2);padding:24px;margin-bottom:20px}
 .wf-card-title{font-size:.88rem;font-weight:600;color:var(--text);margin-bottom:18px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--border2);padding-bottom:14px}
@@ -242,9 +242,6 @@ hr.divider{border:none;border-top:1px solid var(--border);margin:0}
 .dim-table th,.dim-table td{padding:7px 10px;text-align:left;border-bottom:1px solid var(--border)}
 .dim-table th{background:var(--bg2);color:var(--text2)}
 .dim-table td.s{text-align:center;font-weight:700;width:50px}
-/* Sticky table header — scoped to the Geographic Distribution Map's "browse
-   records" table ONLY (mapSelectCountry → showMapRecordsTable). Other tables
-   in the dashboard intentionally keep their normal (non-sticky) headers. */
 .map-records-wrap{position:relative;max-height:520px;overflow-y:auto;overflow-x:auto;border:1px solid var(--border);border-radius:var(--r)}
 .map-records-wrap table{width:100%;border-collapse:collapse}
 .map-records-wrap thead th{position:sticky;top:0;z-index:5;background:var(--bg2);color:var(--text2);box-shadow:0 1px 0 var(--border)}
@@ -341,10 +338,12 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:28px 24p
 
 /* ── FEATURE 2: Custom Columns UI ── */
 .custom-col-list{display:flex;flex-direction:column;gap:8px;margin-top:12px}
-.custom-col-row{display:grid;grid-template-columns:1fr 1fr auto 32px;gap:8px;align-items:center;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:8px 10px}
-.custom-col-row select,.custom-col-row input{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);color:var(--text);padding:6px 10px;font-size:12px;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s;width:100%}
+.custom-col-row{display:grid;grid-template-columns:1fr 1fr minmax(96px,auto) 32px;gap:12px;align-items:center;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:8px 10px}
+.custom-col-row select,.custom-col-row input[type="text"]{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);color:var(--text);padding:6px 10px;font-size:12px;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s;width:100%}
 .custom-col-row select:focus,.custom-col-row input:focus{border-color:var(--accent2)}
-.custom-col-remove{width:28px;height:28px;border-radius:var(--r);background:rgba(248,81,73,.1);border:1px solid rgba(248,81,73,.2);color:var(--red);cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0}
+.custom-col-exclude{display:flex;align-items:center;gap:5px;font-size:.72rem;font-weight:600;color:var(--text2);white-space:nowrap;justify-self:end}
+.custom-col-exclude input[type="checkbox"]{accent-color:var(--accent2);width:14px;height:14px;flex-shrink:0}
+.custom-col-remove{width:28px;height:28px;border-radius:var(--r);background:rgba(248,81,73,.1);border:1px solid rgba(248,81,73,.2);color:var(--red);cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0;justify-self:end}
 .custom-col-remove:hover{background:rgba(248,81,73,.2)}
 .custom-col-add-btn{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;background:rgba(42,191,170,.08);border:1px dashed rgba(42,191,170,.3);border-radius:var(--r);color:var(--accent2);font-size:.78rem;font-weight:500;cursor:pointer;transition:all .2s;margin-top:10px}
 .custom-col-add-btn:hover{background:rgba(42,191,170,.14);border-color:var(--accent2)}
@@ -855,7 +854,6 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:28px 24p
       <div class="settings-layout">
         <div class="settings-nav">
           <div class="settings-nav-item active" onclick="showSettingsPanel('api',this)">🔑 API Configuration</div>
-          <div class="settings-nav-item" onclick="showSettingsPanel('display',this)">🎛️ Display</div>
           <div class="settings-nav-item" onclick="showSettingsPanel('export',this)">📤 Export</div>
         </div>
         <div>
@@ -886,13 +884,11 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:28px 24p
             </div>
             <div id="settings-api-status" class="settings-status"></div>
           </div>
-          <div id="settings-panel-display" class="settings-panel"><div class="settings-card"><div class="sc-heading">🎛️ Display Options</div><p style="color:var(--text3);font-size:.82rem">Display preferences will be added in a future update.</p></div></div>
           <div id="settings-panel-export" class="settings-panel"><div class="settings-card"><div class="sc-heading">📤 Export Defaults</div><div class="fg"><label>Default Format</label><select><option>Excel (.xlsx)</option><option>CSV</option><option>JSON</option></select></div></div></div>
         </div>
       </div>
     </div>
   </section>
-  <footer><div class="footer-inner"><div class="footer-brand"><div class="nav-logo-box"><img src="data:image/png;base64,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" alt="Meezan logo"></div><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.9rem">Meezan</span></div><span class="footer-copy">© 2025 QCRI · Arabic AI Research</span></div></footer>
 </div>
 
 <!-- Modal -->
@@ -909,14 +905,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:28px 24p
 // SECTION 0 — THEME (DARK / LIGHT) + GENERIC TABLE SORTING
 // ═══════════════════════════════════════════════════════════════════
 const THEME_KEY = 'meezan_theme';
-// Theme-aware Chart.js color palette. Chart.js option objects bake in
-// whatever color strings they were given at chart-creation time — a plain
-// `chart.update()` does NOT re-derive them, so a chart built while dark mode
-// was active keeps its near-white grid/tick colors forever (near-invisible
-// once the page switches to light mode), and vice-versa. Every chart in this
-// file pulls its grid/tick/legend colors from here, both at creation time and
-// again whenever the theme is toggled (see restyleAllCharts()) so nothing is
-// ever left over from the previous theme.
+
 function chartThemeColors() {
   const light = document.documentElement.getAttribute('data-theme') === 'light';
   return {
@@ -959,10 +948,7 @@ function restyleChartForTheme(chart) {
   }
   try { chart.update(); } catch(e) {}
 }
-// Every chart built anywhere in this file (radar, stacked bar, the
-// horizontal-bar renderer used by Domains/Countries/Dialects, group-section
-// bars, and per-custom-column charts) is registered in the single global
-// `charts` object, so re-theming all of them is just one loop.
+
 function restyleAllCharts() {
   Object.values(charts || {}).forEach(restyleChartForTheme);
 }
@@ -972,9 +958,6 @@ function applyTheme(theme) {
   const btn = document.getElementById('theme-toggle-btn');
   if (btn) btn.textContent = t === 'light' ? '☀️' : '🌙';
   try { localStorage.setItem(THEME_KEY, t); } catch(e) {}
-  // Re-tint every live Chart.js instance so grid lines, tick labels, radar
-  // axes/labels, and legends always match the theme that's actually active —
-  // this runs even if charts were rendered while the other theme was active.
   try { restyleAllCharts(); } catch(e) {}
 }
 function toggleTheme() {
@@ -990,9 +973,7 @@ function toggleTheme() {
   document.addEventListener('DOMContentLoaded', () => applyTheme(saved));
 })();
 
-// Generic sortable-table enhancer. Works retroactively on any rendered
-// <table> — sorts by clicking any <th>. Detects numeric vs text columns
-// automatically. Safe to call repeatedly (idempotent per table).
+
 function makeSortableTable(table) {
   if (!table || table.dataset.sortableInit === '1') return;
   const thead = table.querySelector('thead');
@@ -1015,9 +996,6 @@ function makeSortableTable(table) {
 function sortTableByColumn(table, colIdx, th) {
   const tbody = table.querySelector('tbody');
   if (!tbody) return;
-  // Grouped tables (e.g. dimension score-bucket cards) have colspan header rows
-  // marking each score group. Sorting by a column flattens that grouping, since
-  // the headers no longer correspond to anything once rows are reordered.
   tbody.querySelectorAll(':scope > tr.score-group-row').forEach(r => r.remove());
   const rows = Array.from(tbody.querySelectorAll(':scope > tr'));
   if (!rows.length) return;
@@ -1050,7 +1028,6 @@ function sortTableByColumn(table, colIdx, th) {
   rows.forEach(r => frag.appendChild(r));
   tbody.appendChild(frag);
 }
-// Finds every table under `root` (defaults to whole document) and wires it up.
 function enhanceAllTables(root) {
   const scope = root || document;
   scope.querySelectorAll('table').forEach(t => makeSortableTable(t));
@@ -1059,7 +1036,6 @@ function enhanceAllTables(root) {
 // ═══════════════════════════════════════════════════════════════════
 // SECTION 1 — READY DASHBOARD REGISTRY
 // ═══════════════════════════════════════════════════════════════════
-// To add a new dashboard: add an entry here + provide data via READY_DATA below.
 const READY_DASHBOARDS = {
   balsam: {
     id: 'balsam',
@@ -1092,13 +1068,6 @@ const READY_DASHBOARDS = {
 
 const READY_DATA_CACHE = {};
 
-// Load ready data - fetches the already-normalized record array for a built-in
-// dashboard (Balsam / PalmX) from ./data/<key>.json using a deployment-safe
-// relative path. Results are cached in-memory so switching between dashboards
-// doesn't re-fetch. These JSON files are the single source of truth for the
-// built-in datasets — Balsam records carry real `Answer` text and PalmX
-// records carry MCQ option/answer info, both already in the record shape the
-// dashboard expects (same shape `compactToRecords` used to produce).
 async function loadReadyData(key) {
   if (READY_DATA_CACHE[key]) {
     return READY_DATA_CACHE[key];
@@ -1135,9 +1104,6 @@ function compactToRecords(rows, format) {
     const rec = {
       ID: r[0], Question: r[1]||'', Category: r[2]||'', Task: r[3]||'',
       Organisation: r[4]||'', 'Source File': r[5]||'', Country: r[6]||'',
-      // NOTE: the embedded compact array for ready dashboards (Balsam / PalmX) does not
-      // carry the original answer text — it was never included when this dataset was
-      // compacted for embedding. We surface that honestly instead of showing a bare "—".
       Answer: '', Type: format || '',
     };
     DIMS.forEach((d, i) => { rec[d] = r[7 + i] || 0; });
@@ -1179,9 +1145,6 @@ const ALL_DIMS = ['Cultural Coverage','Geographic Diversity','Dialect Diversity'
   'Linguistic Authenticity','Cognitive Difficulty','Fairness/Bias','Factuality',
   'Realism','Representativeness','Cultural Balance','Answer Quality','Culture_Relevance'];
 
-// Fixed/core fields the dashboard already renders explicitly. Any field on a record that is
-// NOT in this set is treated as a schema-driven "extra" column and auto-visualized —
-// this is what lets a new benchmark's own fields show up with zero code changes.
 const RESERVED_FIELDS = new Set([
   'ID','Question','Answer','Type','Category','Task','Organisation','Source File','Country',
   ...ALL_DIMS,
@@ -1256,23 +1219,6 @@ const DIM_DEFS = {
   'Culture_Relevance':'Importance and relevance to Arab users (0–5).'
 };
 
-// Verbatim scoring-rule lines lifted directly from the SCORING RULES block inside the
-// evaluation prompt sent to the model in callAPI() — shown in the ℹ️ info modal so the
-// person can see exactly what the AI evaluator was instructed to do for each dimension.
-// const PROMPT_SCORING_RULES = {
-//   'Cultural Coverage': 'Cultural Coverage (0-5): 0=no cultural content, 3=touches one cultural domain, 5=rich multi-domain Arab culture',
-//   'Geographic Diversity': 'Geographic Diversity (0-5): 0=no location, 2=one country, 4=multi-country Arab region, 5=pan-Arab',
-//   'Dialect Diversity': 'Dialect Diversity (0-5): 1=pure MSA only, 3=light regional flavor, 5=multiple distinct dialects',
-//   'Linguistic Authenticity': 'Linguistic Authenticity (1-5): 1=awkward/translated, 3=acceptable MSA, 5=native fluent Arabic',
-//   'Cognitive Difficulty': 'Cognitive Difficulty / Bloom Level: 1=Remember (factual recall), 2=Understand, 3=Apply, 4=Analyze, 5=Evaluate/Create',
-//   'Fairness/Bias': 'Fairness/Bias (1-5): 5=fully fair/balanced, 3=minor stereotyping, 1=heavy bias or offensive',
-//   'Factuality': 'Factuality (1-5): 5=objectively verifiable answer, 3=debatable, 1=subjective or unverifiable',
-//   'Realism': 'Realism (1-5): 5=a real Arab user would naturally ask this, 1=artificial/unlikely',
-//   'Representativeness': 'Representativeness (1-5): 5=well represents typical Arab user needs, 1=niche/irrelevant',
-//   'Cultural Balance': 'Cultural Balance (1-5): 5=balanced across regions/genders/sects, 1=heavily skewed',
-//   'Answer Quality': 'Answer Quality (1-5): 5=answer is complete, accurate, well-written; 1=wrong, incomplete, or misleading',
-//   'Culture_Relevance': 'Culture_Relevance (0-5): 0=no Arab cultural relevance, 3=moderate, 5=directly about Arab identity/culture'
-// };
   const PROMPT_SCORING_RULES = {
     'Cultural Coverage': `Cultural Coverage (0-5): How many Arabic cultural domains do the question AND/OR answer touch? 0 = none, 5 = many. Domains include: food, clothing, religion, festivals, music, poetry, sports, politics, geography, folklore, social customs, history.`,
     'Geographic Diversity': `Geographic Diversity (0-5): How many distinct Arab countries or regions are mentioned or implied in the question or answer? 0 = none, 5 = many.`,
@@ -1648,7 +1594,6 @@ function renderDashboard() {
   renderCustomColCharts();
 
   // FEATURE 3: Auto-save dashboard to localStorage after a short delay
-  // (delay ensures all async rendering settles before we serialise)
   setTimeout(() => saveDashboardToStorage(), 800);
 }
 
@@ -1842,7 +1787,7 @@ function renderDimensionCards() {
       const scColor = sc >= 4 ? 'var(--green)' : sc <= 1 ? 'var(--red)' : 'var(--gold2)';
       rowsHtml += `<tr class="score-group-row" style="background:var(--bg3)"><td colspan="4" style="padding:7px 8px;font-weight:700;font-size:11px;color:${scColor};letter-spacing:.03em">SCORE ${sc} <span style="font-weight:400;color:var(--text3)">(${bucket.length} total${bucket.length > 5 ? ' · showing 5' : ''})</span></td></tr>`;
       examples.forEach(r => {
-        rowsHtml += `<tr><td style="text-align:center;color:var(--text3)">${r.ID || '—'}</td><td class="s" style="color:${scColor}" data-sort-value="${sc}">${sc}</td><td style="cursor:pointer" onclick="showQDetail(${r.ID || 0})">${(r.Question || '').substring(0, 110)}${(r.Question || '').length > 110 ? '…' : ''}</td><td style="color:var(--text3);font-size:11px">${(r.Answer || '—').toString().substring(0, 55)}${(r.Answer || '').toString().length > 55 ? '…' : ''}</td></tr>`;
+        rowsHtml += `<tr><td style="text-align:center;color:var(--text3)">${r.ID || '—'}</td><td class="s" style="color:${scColor}" data-sort-value="${sc}">${sc}</td><td style="cursor:pointer" onclick="showQDetail(${r.ID || 0})">${(r.Question || '').substring(0, 110)}${(r.Question || '').length > 110 ? '…' : ''}</td><td style="color:var(--text3);font-size:11px;line-height:1.5;white-space:normal;word-break:break-word">${(r.Answer || '—').toString().substring(0, 160)}${(r.Answer || '').toString().length > 160 ? '…' : ''}</td></tr>`;
       });
     });
     if (!scores.length) rowsHtml = `<tr><td colspan="4" style="padding:14px;text-align:center;color:var(--text3)">No scored records for this dimension.</td></tr>`;
@@ -1850,7 +1795,7 @@ function renderDimensionCards() {
       <div class="dim-head"><h3>${dim}</h3><span class="mean">mean = ${mean.toFixed(2)}</span></div>
       <p class="dim-def">${DIM_DEFS[dim] || ''}</p>
       <div style="max-height:440px;overflow-y:auto;border:1px solid var(--border);border-radius:6px">
-      <table class="dim-table"><thead><tr><th style="width:36px">#</th><th style="width:56px">Score</th><th>Question</th><th style="width:140px">Answer</th></tr></thead><tbody>
+      <table class="dim-table"><thead><tr><th style="width:36px">#</th><th style="width:56px">Score</th><th>Question</th><th style="width:460px">Answer</th></tr></thead><tbody>
         ${rowsHtml}
       </tbody></table>
       </div>
@@ -1887,15 +1832,6 @@ function resetGroupFilter(key) {
   document.getElementById(`${key}-filtered-records`).innerHTML = '';
 }
 
-// ═══════════════════════════════════════════════════════════════════
-// Generic incremental "Load more" pagination for record-list tables.
-// Several tables used to hard-cap at the first 60/100/300 records for
-// display. That cap is gone: every record in the filtered/loaded dataset is
-// reachable, it's just rendered incrementally (Load more / Load all) instead
-// of dumping thousands of <tr> nodes into the DOM in one shot. Exports
-// (CSV/JSON/Excel) already read the full underlying records array regardless
-// of how many rows are currently rendered on screen.
-// ═══════════════════════════════════════════════════════════════════
 const PAGINATORS = {};
 function initPaginatedTable(key, records, tbodyId, footerId, rowRenderer, pageSize) {
   PAGINATORS[key] = { records: records || [], shown: 0, tbodyId, footerId, rowRenderer, pageSize: pageSize || 100 };
@@ -1970,11 +1906,7 @@ function renderInlineRecords(containerId, records) {
   enhanceAllTables(el);
 }
 
-// Modal records table (generic — used by showFileRecords; NOT the map table,
-// which has its own showMapRecordsTable with a sticky header, see below).
-// No hardcoded record cap: renders in pages of 100 via initPaginatedTable,
-// with "Load more" / "Load all" controls so every matching record can be
-// reached, however many there are.
+
 function recordsTableRowHTML(r, i) {
   const col = r['Culture_Relevance']>=4?'var(--green)':r['Culture_Relevance']>=3?'var(--gold2)':'var(--red)';
   return `<tr><td style="color:var(--text3)">${i+1}</td><td style="max-width:220px;word-break:break-word">${(r.Question||'').substring(0,90)}${(r.Question||'').length>90?'…':''}</td><td style="max-width:180px;word-break:break-word;color:var(--text2)">${(r.Answer||'—').toString().substring(0,90)}${(r.Answer||'').toString().length>90?'…':''}</td><td style="text-align:center;font-weight:700;color:var(--accent2)" data-sort-value="${r['Answer Quality']||0}">${r['Answer Quality']||'—'}</td><td style="text-align:center;font-weight:700;color:${col}" data-sort-value="${r['Culture_Relevance']||0}">${r['Culture_Relevance']||'—'}</td><td style="color:var(--text3)">${r['Category']||'—'}</td></tr>`;
@@ -1985,19 +1917,12 @@ function showRecordsTable(title, records) {
   initPaginatedTable('recordsTable', records, 'records-table-tbody', 'records-table-footer', recordsTableRowHTML, 100);
 }
 
-// Map records table — ONLY used from mapSelectCountry() (the "🗺️ Geographic
-// Distribution Map" card). Same row format as showRecordsTable, but wrapped
-// in .map-records-wrap so its <thead> stays fixed/visible while the user
-// scrolls vertically (see the .map-records-wrap CSS rule), and — like every
-// other table fix in this file — no 100-record cap: paginated via
-// initPaginatedTable so all matching records for a country are reachable.
 function showMapRecordsTable(title, records) {
   const html = `<div class="map-records-wrap"><table class="dim-table" style="font-size:12px;min-width:500px"><thead><tr><th>#</th><th>Question</th><th>Answer</th><th>AQ</th><th>CR</th><th>Category</th></tr></thead><tbody id="map-records-tbody"></tbody></table></div><div id="map-records-footer" class="map-records-footer"></div>`;
   showModal(`📍 ${title}`, html);
   initPaginatedTable('mapRecordsTable', records, 'map-records-tbody', 'map-records-footer', recordsTableRowHTML, 100);
 }
 
-// Modal with full rich records table matching the screenshot design
 function showRecordsModalWithExport(title, records) {
   if (!records || !records.length) {
     showModal(`📊 ${title}`, '<div class="no-data-msg">No matching records found.</div>');
@@ -2100,9 +2025,7 @@ function showRecordsModalWithExport(title, records) {
     headerCells += `<th style="padding:8px 6px;white-space:nowrap;font-size:10px;color:${isDim ? 'var(--accent2)' : 'var(--text3)'};text-transform:uppercase;letter-spacing:.04em;${width};${align}">${label}</th>`;
   });
 
-  // Per-record row renderer (fed to the shared paginator so every record —
-  // not just the first 300 — is reachable via Load more / Load all, same as
-  // the country/dialect drill-down tables).
+
   function rowRenderer(r, i) {
     let rowCells = '';
     ALL_FIELDS.forEach(field => {
@@ -2159,7 +2082,6 @@ function showRecordsModalWithExport(title, records) {
     <div id="modal-records-footer" class="map-records-footer"></div>
   </div>`;
 
-  // Use a wider modal for this view
   const modalContent = document.querySelector('.modal-content');
   if (modalContent) modalContent.style.maxWidth = '98vw';
   document.getElementById('modal-title').textContent = title;
@@ -2218,10 +2140,6 @@ function showQDetail(id) {
 function showFileRecords(name) { const records = dashboardData.rawRecords.filter(r => (r['Source File']||r['Organisation']||'') === name); showRecordsTable(`${name} (${records.length} records)`, records); }
 function scrollToDim(id) { const el=document.getElementById(id); if(el){el.scrollIntoView({behavior:'smooth',block:'start'});el.classList.add('highlight');setTimeout(()=>el.classList.remove('highlight'),2000);} }
 function showDimInfo(dim) {
-  // Prefer the verbatim scoring-rule text from the evaluation prompt
-  // (PROMPT_SCORING_RULES) so the modal shows exactly what the AI evaluator
-  // was instructed to do; fall back to the short DIM_DEFS blurb if a
-  // dimension has no prompt rule on file.
   const rawDef = PROMPT_SCORING_RULES[dim] || DIM_DEFS[dim] || 'No description available for this dimension.';
   const def = rawDef.split('\n').map(l => l.trim()).filter(Boolean).join('<br>');
   const s = dashboardData.summary ? dashboardData.summary[dim] : null;
@@ -2254,7 +2172,7 @@ async function openReadyDashboard(key) {
   document.getElementById('loading-overlay').classList.add('show');
   try {
     // ./data/<key>.json already contains fully-built records (real Balsam
-    // answers, real PalmX MCQ option/answer info) — no compaction step needed.
+    // answers, real PalmX MCQ option/answer info)
     const records = await loadReadyData(key);
     if (!records || !records.length) {
       throw new Error('No data rows found');
@@ -2284,7 +2202,6 @@ function startNewWorkflow() {
   showPage('setup');
 }
 
-// After analysis completes, call this instead of old buildDashboard()
 function analysisToDashboard() {
   if (!scoredData.length) return;
   buildDashboardData(scoredData, {
@@ -2293,8 +2210,7 @@ function analysisToDashboard() {
     source: 'analyzer'
   });
   renderDashboard();
-  // FEATURE 3: clear any stale saved state so we start fresh
-  // (renderDashboard will auto-save with the new data)
+  
 }
 
 // ═══════════════════════════════════════════════════════════════════
@@ -2400,12 +2316,7 @@ function findCountryISO(name) {
   return null;
 }
 
-// Splits a raw "Country" / "Geographic Diversity Detail" field into individual
-// country mentions and canonicalizes each one. This is the single point where
-// normalization happens BEFORE any aggregation — every chart, the map, the
-// table/modal, filters, and CSV export all consume its output (directly or via
-// computeCountryAggregation below), so duplicate aliases are combined once and
-// non-countries are dropped once, rather than per-component.
+
 function extractCountryISOs(raw) {
   const s = String(raw == null ? '' : raw).trim();
   if (!s || s === 'None' || s === '0') return [];
@@ -2418,9 +2329,6 @@ function extractCountryISOs(raw) {
   return Array.from(found);
 }
 
-// Single source of truth for country counts. Consumed by: the Country Frequency
-// chart, Top Countries, the geographic distribution map, the country table
-// modal, country filters, and country CSV export.
 function computeCountryAggregation(records) {
   const counts = {};
   (records || []).forEach(r => {
@@ -2443,8 +2351,7 @@ function mapColorScale(count) {
   return `rgb(${Math.round(30+t*190)},${Math.round(120+t*130)},${Math.round(180+t*60)})`;
 }
 async function buildMap() {
-  // Build country counts from dashboardData — same normalized aggregation used
-  // by the Country Frequency chart, Top Countries, filters, and CSV export.
+  
   COUNTRY_COUNTS = computeCountryAggregation(dashboardData.rawRecords).counts;
 
   const container = document.getElementById('map-container');
@@ -2623,9 +2530,7 @@ async function startAnalysis(){
   const isMCQ=document.getElementById('dataset-type').value==='mcq';
   const map={question:qCol,answer:document.getElementById('map-answer').value,category:document.getElementById('map-category').value,task:document.getElementById('map-task').value,org:document.getElementById('map-org').value,file:document.getElementById('map-file').value,options:['map-optA','map-optB','map-optC','map-optD','map-optE'].map(id=>document.getElementById(id)?.value).filter(v=>v),correctIndex:document.getElementById('map-correct-index').value};
   if(!isMCQ&&!map.answer){alert('Map the answer column');return;}
-  // Any source columns not consumed by the fixed mapping are carried through untouched so the
-  // schema-driven dashboard engine (buildCustomColData) can auto-detect and visualize them —
-  // this lets a brand-new benchmark schema surface its own fields with zero code changes.
+  
   const mappedCols = new Set([map.question, map.answer, map.category, map.task, map.org, map.file, map.correctIndex, ...map.options].filter(Boolean));
   const passthroughCols = uploadedData.length ? Object.keys(uploadedData[0]).filter(h => !mappedCols.has(h)) : [];
   processingCancelled=false;scoredData=[];showPage('process');
@@ -2694,25 +2599,11 @@ function showModal(title, bodyHTML) {
 }
 function showToast(msg,duration=3000){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),duration);}
 window.addEventListener('scroll',()=>{document.getElementById('scroll-top').classList.toggle('visible',window.scrollY>400);});
-// ═══════════════════════════════════════════════════════════════════
-// INIT
-// ═══════════════════════════════════════════════════════════════════
+
 // ═══════════════════════════════════════════════════════════════════
 // FEATURE 1 — IMPROVED CHART RENDERING
-// Replaces renderBarChart for domains/countries/dialects with
-// better bar thickness, hit areas, and scrollable containers.
 // ═══════════════════════════════════════════════════════════════════
 
-/**
- * Build an improved horizontal bar chart inside a scrollable wrapper.
- * Bars are always at least CHART_MIN_BAR_SIZE px tall so click targets are generous.
- * @param {string}   canvasId   - id of the <canvas> element
- * @param {object}   chartData  - { labels:[], data:[] }
- * @param {string}   color      - bar fill colour
- * @param {string}   chartKey   - key for charts/chartDataCache maps
- * @param {Function} onClickFn  - called with (index, labels) → shows records modal
- * @param {number}   maxItems   - maximum bars to show (default 20)
- */
 const CHART_MIN_BAR_SIZE = 34; // px per bar — ensures fat, clickable bars
 const CHART_MAX_SCROLL_H = 540; // max visible height before scroll kicks in
 
@@ -2849,8 +2740,8 @@ function addCustomColumn() {
     <select title="Dataset column" onchange="updateCustomCol(${idx},'colName',this.value)">${opts}</select>
     <input type="text" placeholder="Display name (optional)"
            oninput="updateCustomCol(${idx},'displayName',this.value)">
-    <label style="display:flex;align-items:center;gap:4px;font-size:.68rem;color:var(--text3);white-space:nowrap">
-      <input type="checkbox" onchange="updateCustomCol(${idx},'excluded',this.checked)"> Exclude
+    <label class="custom-col-exclude">
+      <input type="checkbox" onchange="updateCustomCol(${idx},'excluded',this.checked)"> 
     </label>
     <button class="custom-col-remove" title="Remove this override" onclick="removeCustomColumn(${idx},this)">✕</button>
   `;
