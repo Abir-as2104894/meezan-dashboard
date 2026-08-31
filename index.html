@@ -10,8 +10,8 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <script src="https://cdn.sheetjs.com/xlsx-0.20.2/package/dist/xlsx.full.min.js"></script>
 <style>
-:root{--bg:#0A0D12;--bg2:#111620;--bg3:#181E2C;--bg4:#1E2638;--border:#252E40;--border2:rgba(37,46,64,0.5);--text:#E8EFF8;--text2:#8B96A8;--text3:#5A6478;--accent:#1A7A6E;--accent2:#2ABFAA;--gold:#C9A84C;--gold2:#E0BA60;--green:#3FB950;--red:#F85149;--purple:#8250DF;--blue:#3B82F6;--r:5px;--r2:8px;--r3:10px;--tr:0.15s ease;--shadow:0 1px 2px rgba(0,0,0,.4),0 4px 16px rgba(0,0,0,.18);--glow:0 0 0 1px rgba(42,191,170,.10);--sp-1:4px;--sp-2:8px;--sp-3:12px;--sp-4:16px;--sp-5:24px;--sp-6:32px}
-html[data-theme="light"]{--bg:#F5F7FA;--bg2:#FFFFFF;--bg3:#EEF1F6;--bg4:#E4E9F1;--border:#D6DCE6;--border2:rgba(214,220,230,0.7);--text:#101623;--text2:#4B5568;--text3:#7A8499;--accent:#1A7A6E;--accent2:#0E8C7B;--gold:#A9822E;--gold2:#B98F2E;--green:#1E8E3E;--red:#D93025;--purple:#6B3FC7;--blue:#1D5FE0;--shadow:0 1px 2px rgba(16,22,35,.06),0 4px 16px rgba(16,22,35,.06);--glow:0 0 0 1px rgba(14,140,123,.12)}
+:root{--bg:#0A0D12;--bg2:#111620;--bg3:#181E2C;--bg4:#1E2638;--border:#252E40;--border2:rgba(37,46,64,0.5);--text:#E8EFF8;--text2:#8B96A8;--text3:#5A6478;--accent:#1A7A6E;--accent2:#2ABFAA;--gold:#C9A84C;--gold2:#E0BA60;--green:#3FB950;--red:#F85149;--purple:#8250DF;--blue:#3B82F6;--r:5px;--r2:8px;--r3:10px;--tr:0.15s ease;--shadow:0 1px 2px rgba(0,0,0,.4),0 4px 16px rgba(0,0,0,.18);--glow:0 0 0 1px rgba(42,191,170,.10);--sp-1:4px;--sp-2:8px;--sp-3:12px;--sp-4:16px;--sp-5:24px;--sp-6:32px;--bg-rgb:10,13,18}
+html[data-theme="light"]{--bg:#F5F7FA;--bg2:#FFFFFF;--bg3:#EEF1F6;--bg4:#E4E9F1;--border:#D6DCE6;--border2:rgba(214,220,230,0.7);--text:#101623;--text2:#4B5568;--text3:#7A8499;--accent:#1A7A6E;--accent2:#0E8C7B;--gold:#A9822E;--gold2:#B98F2E;--green:#1E8E3E;--red:#D93025;--purple:#6B3FC7;--blue:#1D5FE0;--shadow:0 1px 2px rgba(16,22,35,.06),0 4px 16px rgba(16,22,35,.06);--glow:0 0 0 1px rgba(14,140,123,.12);--bg-rgb:245,247,250}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);font-size:14px;line-height:1.6;overflow-x:hidden;transition:background .25s ease,color .25s ease}
@@ -28,9 +28,9 @@ table.dim-table th,table[style*="border-collapse"] th{position:relative}
 /* INFO ICONS */
 .info-ic{display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:50%;background:var(--bg4);color:var(--text3);font-size:10px;font-style:normal;cursor:pointer;transition:all var(--tr)}
 .info-ic:hover{background:var(--accent);color:#fff}
-.kpi-card .info-ic{position:absolute;top:12px;right:12px}
+.kpi-card .info-ic{flex-shrink:0;margin-top:1px}
 /* NAV */
-nav{position:fixed;top:0;inset-inline:0;z-index:300;height:58px;background:rgba(10,13,18,.94);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 24px;gap:0}
+nav{position:fixed;top:0;inset-inline:0;z-index:300;height:58px;background:rgba(var(--bg-rgb),.94);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 24px;gap:0}
 .nav-brand{display:flex;align-items:center;gap:10px;margin-right:32px;text-decoration:none;flex-shrink:0}
 .nav-logo-box{width:32px;height:32px;border-radius:var(--r);background:#000;display:flex;align-items:center;justify-content:center;font-size:16px;overflow:hidden;flex-shrink:0}
 .nav-logo-box img{width:100%;height:100%;object-fit:contain;display:block}
@@ -58,7 +58,7 @@ nav{position:fixed;top:0;inset-inline:0;z-index:300;height:58px;background:rgba(
 .nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .nav-hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
 .nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.mobile-menu{display:none;position:fixed;top:58px;left:0;right:0;z-index:299;background:rgba(10,13,18,.98);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);flex-direction:column;padding:12px 0 20px;transform:translateY(-110%);transition:transform .3s cubic-bezier(.4,0,.2,1)}
+.mobile-menu{display:none;position:fixed;top:58px;left:0;right:0;z-index:299;background:rgba(var(--bg-rgb),.98);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);flex-direction:column;padding:12px 0 20px;transform:translateY(-110%);transition:transform .3s cubic-bezier(.4,0,.2,1)}
 .mobile-menu.open{transform:translateY(0)}
 .mobile-menu a{display:block;padding:13px 24px;font-size:.95rem;font-weight:500;color:var(--text2);text-decoration:none;border-bottom:1px solid var(--border2);transition:color var(--tr),background var(--tr)}
 .mobile-menu a:hover{color:var(--text);background:rgba(255,255,255,.03)}
@@ -188,7 +188,8 @@ hr.divider{border:none;border-top:1px solid var(--border);margin:0}
 .kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:24px}
 .kpi-card{position:relative;background:var(--bg);border:1px solid var(--border);border-radius:var(--r2);padding:16px 18px;cursor:pointer;transition:all .2s}
 .kpi-card:hover{border-color:var(--accent);transform:translateY(-1px)}
-.kpi-card h4{font-size:.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px;padding-right:20px}
+.kpi-card h4{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;font-size:.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
+.kpi-card h4 .kpi-title{flex:1;min-width:0;overflow-wrap:anywhere;word-break:break-word}
 .kpi-value{font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:700;color:var(--accent2);line-height:1}
 .chart-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
 .chart-card {
@@ -321,7 +322,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:28px 24p
 .footer-links a{font-size:.72rem;color:var(--text3);text-decoration:none;transition:color var(--tr)}
 .footer-links a:hover{color:var(--text)}
 /* LOADING OVERLAY */
-#loading-overlay{display:none;position:fixed;inset:0;background:rgba(10,13,18,.85);z-index:500;align-items:center;justify-content:center;flex-direction:column;gap:16px}
+#loading-overlay{display:none;position:fixed;inset:0;background:rgba(var(--bg-rgb),.85);z-index:500;align-items:center;justify-content:center;flex-direction:column;gap:16px}
 #loading-overlay.show{display:flex}
 .loading-spinner{width:48px;height:48px;border:3px solid var(--border);border-top-color:var(--accent2);border-radius:50%;animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
@@ -1485,7 +1486,7 @@ function renderDashboard() {
     const s = dd.summary[d];
     const safeId = d.replace(/ /g, '-').replace(/\//g, '_');
     const safeDim = d.replace(/'/g,"\\'");
-    return `<div class="kpi-card" onclick="scrollToDim('dim-${safeId}')"><h4>${d}<span class="info-ic" title="What is this?" onclick="event.stopPropagation();showDimInfo('${safeDim}')">ⓘ</span></h4><div class="kpi-value">${s.mean.toFixed(2)}</div></div>`;
+    return `<div class="kpi-card" onclick="scrollToDim('dim-${safeId}')"><h4><span class="kpi-title">${d}</span><span class="info-ic" title="What is this?" onclick="event.stopPropagation();showDimInfo('${safeDim}')">ⓘ</span></h4><div class="kpi-value">${s.mean.toFixed(2)}</div></div>`;
   }).join('');
 
   // Destroy old charts
@@ -2099,9 +2100,10 @@ function showRecordsModalWithExport(title, records) {
     headerCells += `<th style="padding:8px 6px;white-space:nowrap;font-size:10px;color:${isDim ? 'var(--accent2)' : 'var(--text3)'};text-transform:uppercase;letter-spacing:.04em;${width};${align}">${label}</th>`;
   });
 
-  // Generate rows
-  let rows = '';
-  records.slice(0, 300).forEach((r, i) => {
+  // Per-record row renderer (fed to the shared paginator so every record —
+  // not just the first 300 — is reachable via Load more / Load all, same as
+  // the country/dialect drill-down tables).
+  function rowRenderer(r, i) {
     let rowCells = '';
     ALL_FIELDS.forEach(field => {
       const val = r[field];
@@ -2142,19 +2144,19 @@ function showRecordsModalWithExport(title, records) {
     // Click on Question to show detail
     const clickHandler = r.Question ? `onclick="closeModal();showQDetail(${r.ID||i+1})"` : '';
     
-    rows += `<tr style="border-bottom:1px solid var(--border);vertical-align:top" ${clickHandler}>
+    return `<tr style="border-bottom:1px solid var(--border);vertical-align:top" ${clickHandler}>
       ${rowCells}
     </tr>`;
-  });
+  }
 
   const table = `<div style="overflow:auto;max-height:calc(85vh - 120px)">
     <table style="border-collapse:collapse;width:100%;min-width:1400px;font-family:'Inter',sans-serif;font-size:12px">
       <thead style="position:sticky;top:0;z-index:10;background:var(--bg2)">
         <tr>${headerCells}</tr>
       </thead>
-      <tbody>${rows}</tbody>
+      <tbody id="modal-records-tbody"></tbody>
     </table>
-    <div style="padding:10px;text-align:center;font-size:11px;color:var(--text3)">Showing ${Math.min(records.length,300)} of ${records.length} records — click any row to view full detail</div>
+    <div id="modal-records-footer" class="map-records-footer"></div>
   </div>`;
 
   // Use a wider modal for this view
@@ -2163,6 +2165,7 @@ function showRecordsModalWithExport(title, records) {
   document.getElementById('modal-title').textContent = title;
   document.getElementById('modal-body').innerHTML = exportRow + table;
   document.getElementById('modal').classList.add('open');
+  initPaginatedTable('modalRecordsTable', records, 'modal-records-tbody', 'modal-records-footer', rowRenderer, 150);
   enhanceAllTables(document.getElementById('modal-body'));
 }
 function closeModal() {
@@ -2215,7 +2218,12 @@ function showQDetail(id) {
 function showFileRecords(name) { const records = dashboardData.rawRecords.filter(r => (r['Source File']||r['Organisation']||'') === name); showRecordsTable(`${name} (${records.length} records)`, records); }
 function scrollToDim(id) { const el=document.getElementById(id); if(el){el.scrollIntoView({behavior:'smooth',block:'start'});el.classList.add('highlight');setTimeout(()=>el.classList.remove('highlight'),2000);} }
 function showDimInfo(dim) {
-  const def = DIM_DEFS[dim] || 'No description available for this dimension.';
+  // Prefer the verbatim scoring-rule text from the evaluation prompt
+  // (PROMPT_SCORING_RULES) so the modal shows exactly what the AI evaluator
+  // was instructed to do; fall back to the short DIM_DEFS blurb if a
+  // dimension has no prompt rule on file.
+  const rawDef = PROMPT_SCORING_RULES[dim] || DIM_DEFS[dim] || 'No description available for this dimension.';
+  const def = rawDef.split('\n').map(l => l.trim()).filter(Boolean).join('<br>');
   const s = dashboardData.summary ? dashboardData.summary[dim] : null;
   let statsHtml = '';
   if (s) {
