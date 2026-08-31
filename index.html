@@ -1272,46 +1272,33 @@ const DIM_DEFS = {
 //   'Answer Quality': 'Answer Quality (1-5): 5=answer is complete, accurate, well-written; 1=wrong, incomplete, or misleading',
 //   'Culture_Relevance': 'Culture_Relevance (0-5): 0=no Arab cultural relevance, 3=moderate, 5=directly about Arab identity/culture'
 // };
-const PROMPT_SCORING_RULES = {
-  'Cultural Coverage': `Cultural Coverage (0-5): How many Arabic cultural domains do the question AND/OR answer touch? 0 = none, 5 = many. Domains include: food, clothing, religion, festivals, music, poetry, sports, politics, geography, folklore, social customs, history.`,
-  
-  'Geographic Diversity': `Geographic Diversity (0-5): How many distinct Arab countries or regions are mentioned or implied in the question or answer? 0 = none, 5 = many.`,
-  
-  'Dialect Diversity': `Dialect Diversity (0-5): 1 = pure MSA; higher = clear dialect markers; 5 = multiple distinct dialects. Consider both Q and A. Dialects include: Egyptian, Gulf, Levantine, Iraqi, Moroccan, Sudanese, Tunisian, etc.`,
-  
-  'Linguistic Authenticity': `Linguistic Authenticity (1-5): 5 = both Q and A sound like native Arabic; 1 = obvious translation artifacts (US/Western entities, literal NLP-task framings translated from English).`,
-  
-  'Cognitive Difficulty': `Cognitive Difficulty / Bloom Level (1-5): 1 = Remember (factual recall), 2 = Understand, 3 = Apply, 4 = Analyze, 5 = Evaluate / Create. Also return Bloom Level as one of: Remember, Understand, Apply, Analyze, Evaluate, Create, Other.`,
-  
-  'Fairness/Bias': `Fairness/Bias (1-5): 5 = balanced and neutral across Q+A; 1 = heavy stereotype or skew (terrorism framing, single-country dominance, gender/sect bias).`,
-  
-  'Factuality': `Factuality (1-5): 5 = answer is a verifiable factual claim; 1 = subjective opinion only.`,
-  
-  'Realism': `Realism (1-5): 5 = a real Arab user would plausibly ask this; 1 = artificial NLP-task framing ("In this task, …", "Given the input …", "Answer yes/no").`,
-  
-  'Representativeness': `Representativeness (1-5): How well the pair represents typical needs/interests of Arab users. 5 = well represents typical Arab user needs, 1 = niche/irrelevant.`,
-  
-  'Cultural Balance': `Cultural Balance (1-5): Overall balance across cultural axes (domain × geography × dialect × authenticity × realism). 5 = balanced and culturally rich; 1 = narrow and skewed.`,
-  
-  'Answer Quality': `Answer Quality (1-5): How well does the gold answer address the question?
-    5 = fully correct, complete, fluent, culturally appropriate
-    4 = correct with minor issues (style, completeness, phrasing)
-    3 = partially correct or partially answering the question
-    2 = mostly wrong but topically related
-    1 = wrong, irrelevant, empty, or off-topic
-    
-    Also return Answer Quality Reason: ONE short Arabic or English sentence (≤ 25 words) justifying the score.`,
-  
-  'Culture_Relevance': `Culture_Relevance (0-5): Importance of the (question, answer) pair to a typical Arab user.
-    5 = أساسي للمستخدم العربي (essential — Islamic / Arab figures, worship, customs, MSA, Arab-Islamic history, Arab literature or geography)
-    4 = مهم وشائع عربيًا (important and common in the Arab world — Arab arts, music, poetry, sports, cuisine, regional events, regionally famous figures)
-    3 = معرفة عالمية عامة (general world knowledge any user needs — science, math, tech, general health, common world history)
-    2 = معرفة عالمية ضيقة (narrow world knowledge — non-famous foreign figures, deep specifics about distant cultures, rare specialisations)
-    1 = غير ذي صلة تقريبًا (almost irrelevant to Arab users; or an artificial NLP-task framing a real user would not ask)
-    0 = تجاهل (offensive content, unwanted language, broken / unclear due to machine-translation errors, or empty)
-    
-    Also return Culture_Relevance_Explanation: ONE short Arabic sentence (≤ 25 words) justifying the class.`
-};
+  const PROMPT_SCORING_RULES = {
+    'Cultural Coverage': `Cultural Coverage (0-5): How many Arabic cultural domains do the question AND/OR answer touch? 0 = none, 5 = many. Domains include: food, clothing, religion, festivals, music, poetry, sports, politics, geography, folklore, social customs, history.`,
+    'Geographic Diversity': `Geographic Diversity (0-5): How many distinct Arab countries or regions are mentioned or implied in the question or answer? 0 = none, 5 = many.`,
+    'Dialect Diversity': `Dialect Diversity (0-5): 1 = pure MSA; higher = clear dialect markers; 5 = multiple distinct dialects. Consider both Q and A. Dialects include: Egyptian, Gulf, Levantine, Iraqi, Moroccan, Sudanese, Tunisian, etc.`,
+    'Linguistic Authenticity': `Linguistic Authenticity (1-5): 5 = both Q and A sound like native Arabic; 1 = obvious translation artifacts (US/Western entities, literal NLP-task framings translated from English).`,
+    'Cognitive Difficulty': `Cognitive Difficulty / Bloom Level (1-5): 1 = Remember (factual recall), 2 = Understand, 3 = Apply, 4 = Analyze, 5 = Evaluate / Create. Also return Bloom Level as one of: Remember, Understand, Apply, Analyze, Evaluate, Create, Other.`,
+    'Fairness/Bias': `Fairness/Bias (1-5): 5 = balanced and neutral across Q+A; 1 = heavy stereotype or skew (terrorism framing, single-country dominance, gender/sect bias).`,
+    'Factuality': `Factuality (1-5): 5 = answer is a verifiable factual claim; 1 = subjective opinion only.`,
+    'Realism': `Realism (1-5): 5 = a real Arab user would plausibly ask this; 1 = artificial NLP-task framing ("In this task, …", "Given the input …", "Answer yes/no").`,
+    'Representativeness': `Representativeness (1-5): How well the pair represents typical needs/interests of Arab users. 5 = well represents typical Arab user needs, 1 = niche/irrelevant.`,
+    'Cultural Balance': `Cultural Balance (1-5): Overall balance across cultural axes (domain × geography × dialect × authenticity × realism). 5 = balanced and culturally rich; 1 = narrow and skewed.`,
+    'Answer Quality': `Answer Quality (1-5): How well does the gold answer address the question?
+      5 = fully correct, complete, fluent, culturally appropriate
+      4 = correct with minor issues (style, completeness, phrasing)
+      3 = partially correct or partially answering the question
+      2 = mostly wrong but topically related
+      1 = wrong, irrelevant, empty, or off-topic
+      Also return Answer Quality Reason: ONE short Arabic or English sentence (≤ 25 words) justifying the score.`,
+    'Culture_Relevance': `Culture_Relevance (0-5): Importance of the (question, answer) pair to a typical Arab user.
+      5 = أساسي للمستخدم العربي (essential — Islamic / Arab figures, worship, customs, MSA, Arab-Islamic history, Arab literature or geography)
+      4 = مهم وشائع عربيًا (important and common in the Arab world — Arab arts, music, poetry, sports, cuisine, regional events, regionally famous figures)
+      3 = معرفة عالمية عامة (general world knowledge any user needs — science, math, tech, general health, common world history)
+      2 = معرفة عالمية ضيقة (narrow world knowledge — non-famous foreign figures, deep specifics about distant cultures, rare specialisations)
+      1 = غير ذي صلة تقريبًا (almost irrelevant to Arab users; or an artificial NLP-task framing a real user would not ask)
+      0 = تجاهل (offensive content, unwanted language, broken / unclear due to machine-translation errors, or empty)
+      Also return Culture_Relevance_Explanation: ONE short Arabic sentence (≤ 25 words) justifying the class.`
+  };
 // ═══════════════════════════════════════════════════════════════════
 // SECTION 4 — DATA LOADER
 // Transforms raw records → dashboardData
