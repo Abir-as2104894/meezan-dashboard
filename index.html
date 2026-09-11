@@ -1041,20 +1041,20 @@ const READY_DASHBOARDS = {
     id: 'balsam',
     name: 'Balsam',
     description: 'Arabic cultural benchmark with 6,400+ annotated Q&A items spanning cultural norms, Islamic context, social practices, and regional traditions.',
-    model: 'GPT-4o',
+    model: 'GPT-5.1',
     format: 'QA',
     itemCount: '6,418',
-    tags: ['QA Format', '6,418 items', 'QCRI', 'GPT-4o'],
+    tags: ['QA Format', '6,418 items', 'QCRI', 'GPT-5.1'],
     badge: 'ready'
   },
   palmx: {
     id: 'palmx',
     name: 'PalmX',
     description: 'Multi-domain Arabic MCQ benchmark covering culture, geography, history, and social topics scored across all twelve cultural dimensions.',
-    model: 'GPT-4o',
+    model: 'GPT-5.1',
     format: 'MCQ',
     itemCount: '2,000',
-    tags: ['MCQ Format', '2,000 items', 'QCRI', 'GPT-4o'],
+    tags: ['MCQ Format', '2,000 items', 'QCRI', 'GPT-5.1'],
     badge: 'ready'
   }
 };
@@ -2437,7 +2437,7 @@ function loadSettingsForm(){const s=getApiSettings();if(!s){updateApiStatusBadge
 function updateApiStatusBadges(){const s=getApiSettings();const has=s&&s.apiKey;const b=document.getElementById('api-configured-badge');const n=document.getElementById('api-status-nav');if(b){b.className='api-status-badge '+(has?'configured':'missing');b.textContent=has?'✓ Configured':'⚠ Not Configured';}if(n)n.textContent=has?'✓ API Ready':'⚙️ Not configured';}
 function showSettingsStatus(type,msg){const el=document.getElementById('settings-api-status');el.className='settings-status '+type;el.textContent=msg;setTimeout(()=>{el.style.display='none';el.className='settings-status';},4000);}
 function showSettingsPanel(name,el){document.querySelectorAll('.settings-panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.settings-nav-item').forEach(i=>i.classList.remove('active'));document.getElementById('settings-panel-'+name).classList.add('active');el.classList.add('active');}
-function toggleSettingsProvider(){const p=document.getElementById('s-provider').value,url=document.getElementById('s-api-url'),m=document.getElementById('s-model-name'),h=document.getElementById('s-url-hint');if(p==='fanar'){url.value='https://api.fanar.qa/v1/chat/completions';m.value='Fanar-C-1-8.7B';h.textContent='Fanar: https://api.fanar.qa/v1/chat/completions';}else if(p==='openai'){url.value='https://api.openai.com/v1/chat/completions';m.value='gpt-4o-mini';h.textContent='OpenAI: https://api.openai.com/v1/chat/completions';}else{url.value='';m.value='';h.textContent='Enter your provider endpoint';}}
+function toggleSettingsProvider(){const p=document.getElementById('s-provider').value,url=document.getElementById('s-api-url'),m=document.getElementById('s-model-name'),h=document.getElementById('s-url-hint');if(p==='fanar'){url.value='https://api.fanar.qa/v1/chat/completions';m.value='Fanar-C-1-8.7B';h.textContent='Fanar: https://api.fanar.qa/v1/chat/completions';}else if(p==='openai'){url.value='https://api.openai.com/v1/chat/completions';m.value='gpt-5.1-mini';h.textContent='OpenAI: https://api.openai.com/v1/chat/completions';}else{url.value='';m.value='';h.textContent='Enter your provider endpoint';}}
 function checkApiKeyWarning(){const s=getApiSettings();const w=document.getElementById('api-key-warning');if(w)w.style.display=(s&&s.apiKey)?'none':'block';}
 
 // Upload
