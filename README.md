@@ -10,4 +10,4 @@ We found that PalmX scores noticeably higher than Balsam on Linguistic Authentic
 Abir Sidilemine, Hassan Tariq
 
 ## Mentor
-Hamdy Mubarak
+Dr. Hamdy Mubarak, Dr. Majd Hawasly
